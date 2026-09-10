@@ -1,0 +1,71 @@
+/* Custom styles for SpamGuard AI */
+
+/* Explainable AI Word Chips */
+.xai-chip {
+    display: inline-block;
+    padding: 1px 6px;
+    margin: 1px 2px;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: help;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    line-height: 1.4;
+}
+
+.xai-chip:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.xai-tag {
+    font-size: 0.68rem;
+    font-weight: 700;
+    margin-left: 4px;
+    padding: 0 3px;
+    border-radius: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.xai-spam {
+    background-color: #fee2e2 !important;
+    border-bottom: 2px solid #ef4444 !important;
+    color: #991b1b !important;
+}
+
+.xai-spam .xai-tag {
+    color: #dc2626;
+}
+
+.xai-ham {
+    background-color: #dcfce7 !important;
+    border-bottom: 2px solid #22c55e !important;
+    color: #166534 !important;
+}
+
+.xai-ham .xai-tag {
+    color: #16a34a;
+}
+
+/* Tooltip container */
+.tooltip-box {
+    position: relative;
+}
+
+/* Card hover glow */
+.stat-card {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08);
+}
+
+/* Highlight email reading container */
+.highlight-container {
+    line-height: 1.8;
+    font-size: 0.95rem;
+    word-break: break-word;
+}

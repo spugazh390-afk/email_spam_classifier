@@ -151,6 +151,18 @@ def api_export_csv():
         headers={"Content-disposition": "attachment; filename=spam_prediction_history.csv"}
     )
 
+def get_local_ip():
+    import socket
+    s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    try:
+        s.connect(('8.8.8.8', 80))
+        ip = s.getsockname()[0]
+    except Exception:
+        ip = '127.0.0.1'
+    finally:
+        s.close()
+    return ip
+
 if __name__ == '__main__':
     import sys
     try:
@@ -161,10 +173,12 @@ if __name__ == '__main__':
 
     # Ensure model is ready
     get_or_load_model()
-    print("\n=======================================================")
-    print("[*] Email Spam Classification Server Running!")
-    print("[*] Local URL:   http://127.0.0.1:5000")
-    print("[*] Network URL: http://0.0.0.0:5000")
-    print("[*] Features: Confidence Score | Explainable AI | History | Admin")
-    print("=======================================================\n")
+    local_ip = get_local_ip()
+    print("\n" + "="*65)
+    print(" [*] Email Spam Classification Server Running!")
+    print(f" [*] Local URL (Your PC):      http://127.0.0.1:5000")
+    print(f" [*] Friends Link (Same Wi-Fi): http://{local_ip}:5000")
+    print(" [*] Public Internet Link:      Run 'py share.py' in another terminal")
+    print(" [*] Features: Confidence Score | Explainable AI | History | Admin")
+    print("="*65 + "\n")
     app.run(debug=True, host='0.0.0.0', port=5000)
